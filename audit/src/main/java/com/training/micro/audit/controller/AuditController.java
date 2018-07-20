@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.training.micro.audit.document.Audit;
+import com.training.micro.audit.document.AuditPer;
 import com.training.micro.audit.exception.AuditException;
 import com.training.micro.audit.service.AuditService;
 
@@ -41,8 +42,8 @@ public class AuditController {
 		try
 		{
 		
-		Audit auditResult=auditservice.createAudit(audit);
-		return new ResponseEntity<Audit>(auditResult, HttpStatus.CREATED);
+		AuditPer auditResult=auditservice.createAudit(audit);
+		return new ResponseEntity<AuditPer>(auditResult, HttpStatus.CREATED);
 		}
 		catch(AuditException e)
 		{
@@ -51,7 +52,7 @@ public class AuditController {
 }
 	
 	
-	@GetMapping
+/*	@GetMapping
 	public ResponseEntity<?> viewAudit() {
 		List<Audit> auditResult=auditservice.viewAudit();
 		return new ResponseEntity<List<Audit>>(auditResult, HttpStatus.CREATED);
@@ -60,10 +61,10 @@ public class AuditController {
 }
 	
 	
-	/**
+	*//**
 	 * viewing list of audits 
 	 * @return ResponseEntity
-	 */
+	 *//*
 	@GetMapping(value="/hi")
 	public ResponseEntity<?> viewhiAudit() {
 		List<Audit> auditResult=auditservice.viewAudit();
@@ -71,26 +72,26 @@ public class AuditController {
 
 
 }
-	/**
+	*//**
 	 * viewing a list of audits of aparticular eventname
 	 * @param eventName
 	 * @return
-	 */
+	 *//*
 	@GetMapping(value="/{eventName}")
 	public ResponseEntity<?> viewOneAudit(@PathVariable final String eventName) {
 		List<Audit> auditResult=auditservice.viewOneByEvent(eventName);
 		return new ResponseEntity<List<Audit>>(auditResult, HttpStatus.CREATED);
 
 }
-	/**
+	*//**
 	 * updating list of audits of a particular event name type
 	 * @param eventName
 	 * @return
-	 */
+	 *//*
 	@PostMapping(value="/{eventName}")
 	public ResponseEntity<?> updateAudit(@PathVariable final String eventName) {
 		String auditResult=auditservice.updateAudit(eventName);
 		return new ResponseEntity<String>(auditResult, HttpStatus.CREATED);
 
-}
+}*/
 }

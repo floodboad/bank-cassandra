@@ -1,4 +1,4 @@
-package com.training.micro.audit.test;
+/*package com.training.micro.audit.test;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
@@ -22,10 +22,10 @@ import com.training.micro.audit.exception.AuditException;
 import com.training.micro.audit.repository.AuditRepo;
 import com.training.micro.audit.service.AuditServiceImpl;
 
-/**
+*//**
  * @author tuhindas
  *
- */
+ *//*
 @RunWith(MockitoJUnitRunner.class)
 public class AuditTest {
 
@@ -33,9 +33,9 @@ public class AuditTest {
 	AuditServiceImpl auditService;
 	@Mock
 	AuditRepo auditRepo;
-	/**
+	*//**
 	 * positive test case for creation of a audit
-	 */
+	 *//*
 	@Test
 	public void testCreateAuditP()
 	{
@@ -43,17 +43,17 @@ public class AuditTest {
 		when(auditRepo.save(Mockito.<Audit>any())).thenReturn(audit);
 		assertEquals(auditService.createAudit(audit).getEventName(),"tuhin");
 	}
-	/**
+	*//**
 	 * test case when exception thrown during creation of audit
-	 */
+	 *//*
 	@Test(expected=AuditException.class)
 	public void testCreateAuditN() {
 		final Audit audit=new Audit("tuhin",null,new Date(),"123",new Object(),new Object());
 		auditService.createAudit(audit);
 			}
-	/**
+	*//**
 	 * finding audit list positive test case
-	 */
+	 *//*
 	
 	@Test
 	public void testFindAudit()
@@ -66,9 +66,9 @@ public class AuditTest {
 		when(auditRepo.findAll()).thenReturn(auditList);
 		assertThat(auditService.viewAudit(),is(notNullValue()));
 	}
-	/**
+	*//**
 	 * negetive test case for finding audit list of particular event name
-	 */
+	 *//*
 	@Test(expected=AuditException.class)
 	public void testEventAuditN()
 	{
@@ -76,9 +76,9 @@ public class AuditTest {
 		auditService.viewOneByEvent(null);
 
 	}
-	/**
+	*//**
 	 * positive test case for finding audit list of particular event name
-	 */
+	 *//*
 	
 	@Test
 	public void testEventAuditP()
@@ -92,9 +92,9 @@ public class AuditTest {
 		when(auditRepo.findByEventName(Mockito.any())).thenReturn(auditList);
 		assertEquals(auditService.viewOneByEvent(eventName).get(0),audit);
 	}
-	/**
+	*//**
 	 * test case when a audit record is updated
-	 */
+	 *//*
 	@Test
 	public void testUpdateAudit()
 	{
@@ -109,3 +109,4 @@ public class AuditTest {
 	}
 	
 }
+*/

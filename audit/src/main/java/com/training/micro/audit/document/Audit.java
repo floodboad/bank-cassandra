@@ -5,28 +5,32 @@ import java.util.UUID;
 
 import javax.validation.constraints.NotNull;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.cassandra.mapping.PrimaryKey;
+import org.springframework.data.cassandra.mapping.Table;
+
+import com.training.micro.audit.helper.Customer;
 
 /**
  * @author tuhindas
  *
  * @param <T>
  */
-@Document
+//@Document
+@Table
 public class Audit<T> {
 	
 	
 
-	@Id
+	//@Id
+	@PrimaryKey
 	private UUID eventId=UUID.randomUUID();
 	private String eventName;
 	@NotNull
 	private String eventType;
 	private Date eventDate;
 	private String userId;
-	private T oldValue;
-	private T newValue;
+	private Customer oldValue;
+	private Customer newValue;
 
 	/**
 	 * @return the eventId
@@ -91,19 +95,19 @@ public class Audit<T> {
 	/**
 	 * @return the oldValue
 	 */
-	public Object getOldValue() {
+	public Customer getOldValue() {
 		return oldValue;
 	}
 	/**
 	 * @param oldValue the oldValue to set
 	 */
-	public void setOldValue(T oldValue) {
+	public void setOldValue(Customer oldValue) {
 		this.oldValue = oldValue;
 	}
 	/**
 	 * @return the newValue
 	 */
-	public Object getNewValue() {
+	public Customer getNewValue() {
 		return newValue;
 	}
 	
@@ -113,11 +117,11 @@ public class Audit<T> {
 	/**
 	 * @param newValue the newValue to set
 	 */
-	public void setNewValue(T newValue) {
+	public void setNewValue(Customer newValue) {
 		this.newValue = newValue;
 	}
 	public Audit( String eventName, String eventType, Date eventDate, String userId,
-			T oldValue, T newValue) {
+			Customer oldValue, Customer newValue) {
 		
 		this.eventName = eventName;
 		this.eventType = eventType;
